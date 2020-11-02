@@ -1,0 +1,67 @@
+<header>
+    <h1>Dashboard</h1>
+</header>
+<div class="grid-container">
+    <div class="side-box">
+        <div class="box-data border-bottom">
+            <img src="../../assets/layer-group.PNG">
+            <div class="box-data-text">
+                <span class="box-data-title grey-text">Número de Aplicações</span>
+                <br>
+                <p class="data grey-text">100</p>
+            </div>
+        </div>
+        <div class="box-data border-bottom">
+            <img src="../../assets/veloc.PNG">
+            <div class="box-data-text">
+                <span class="box-data-title">Tempo Médio para Primeira Integração</span>
+                <br>
+                <p class="data">2 dias</p>
+            </div>
+
+        </div>
+        <div class="box-data">
+            <img src="../../assets/chart.PNG">
+            <div class="box-data-text">
+                <span class="box-data-title grey-text">Faturamento nos próximos 12 meses</span>
+                <br>
+                <p class="data green-text">$ 9.000</p>
+            </div>
+        </div>
+    </div>
+    <div class="grid-charts">
+        <div class="chart">
+            <label for="" class="chart-label border-bottom">
+                <div class="label-text grey-text">
+                    <img src="../../assets/write.PNG" alt="">
+                    <h3>CONSUMO DA API</h3>
+                </div>
+            </label>
+            <div class="chart-canvas-box">
+                <app-consumo-chart></app-consumo-chart>
+            </div>
+        </div>
+        <div class="chart">
+            <label class="chart-label border-bottom">
+                <h3 class="label-text grey-text">
+                    <img src="../../assets/paper.PNG" alt="">
+                    APLICAÇÕES
+                </h3>
+            </label>
+            <div class="chart-canvas-box">
+                <app-ambientes-chart></app-ambientes-chart>
+            </div>
+
+        </div>
+        <div class="chart">
+            <div class="chart-canvas-box">
+                <app-planejamento-chart></app-planejamento-chart>
+            </div>
+        </div>
+        <div class="chart">
+            <div class="chart-canvas-box">
+                <app-doughnut-chart></app-doughnut-chart>
+            </div>
+        </div>
+    </div>
+</div>
