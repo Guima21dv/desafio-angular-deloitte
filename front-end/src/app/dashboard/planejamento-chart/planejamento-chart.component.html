@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="dadosCarregados">
     <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions"
         [legend]="chartLegend" [chartType]="chartType">
     </canvas>

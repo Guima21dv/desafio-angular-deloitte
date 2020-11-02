@@ -8,7 +8,7 @@
             <div class="box-data-text">
                 <span class="box-data-title grey-text">Número de Aplicações</span>
                 <br>
-                <p class="data grey-text">100</p>
+                <p class="data grey-text">{{numeroDeAplicacoes}}</p>
             </div>
         </div>
         <div class="box-data border-bottom">
@@ -16,7 +16,7 @@
             <div class="box-data-text">
                 <span class="box-data-title">Tempo Médio para Primeira Integração</span>
                 <br>
-                <p class="data">2 dias</p>
+                <p class="data">{{tempoMedioDeIntegracao}} dias</p>
             </div>
 
         </div>
@@ -25,7 +25,7 @@
             <div class="box-data-text">
                 <span class="box-data-title grey-text">Faturamento nos próximos 12 meses</span>
                 <br>
-                <p class="data green-text">$ 9.000</p>
+                <p class="data green-text">{{faturamento | currency: 'USD': 'symbol':'1.0-0'}}</p>
             </div>
         </div>
     </div>

@@ -1,6 +1,8 @@
+import { DashboardService } from './../../services/dashboard.service';
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { ConsumoData } from 'src/app/shared/interfaces/ConsumoData';
 
 @Component({
   selector: 'app-consumo-chart',
@@ -9,17 +11,12 @@ import { Color, Label } from 'ng2-charts';
 })
 export class ConsumoChartComponent implements OnInit {
 
-  constructor() { }
-  public consumoChartLabels: Label[] = ['Ec. Varejo', 'Portador', 'Credenciador', 'Emissor', 'Comunidade']
+  constructor(private dashboardService: DashboardService) { }
+  public dadosCarregados = false;
+  public chartLabels: Label[] = [];
+  public chartData: ChartDataSets[] = [];
+  public dataSetsLabels = ['Portador', 'Token', 'Bins', 'Pricing', 'Facilitador', 'Hist. Trans.'];
   public consumoChartType: ChartType = 'horizontalBar';
-  public consumoChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A', stack: 'a' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B', stack: 'a' },
-    { data: [8, 18, 30, 69, 16, 23, 20], label: 'Series c', stack: 'a' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series d', stack: 'a' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series e', stack: 'a' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series f', stack: 'a' }
-  ];
 
   public consumoChartLegend = true;
   public consumoChartBarColor: Color[] = [
@@ -38,6 +35,33 @@ export class ConsumoChartComponent implements OnInit {
     }
   };
   ngOnInit(): void {
+    this.dashboardService.getConsumo().subscribe(response => {
+      this.loadChartDataSetAndLabels(response);
+      this.dadosCarregados = true;
+    }, error => alert('Ocorreu um erro ao carregar os dados'))
+  }
+
+  loadChartDataSetAndLabels(data: ConsumoData[]): void {
+    const labels = data.map(value => value.label);
+    const portadorQtd = data.map(value => value.portador);
+    const tokenQtd = data.map(value => value.token);
+    const binsQtd = data.map(value => value.bins);
+    const pricingQtd = data.map(value => value.pricing);
+    const facilitadorQtd = data.map(value => value.facilitador);
+    const histTransQtd = data.map(value => value.histTrans);
+    const datas = [
+      portadorQtd,
+      tokenQtd,
+      binsQtd,
+      pricingQtd,
+      facilitadorQtd,
+      histTransQtd
+    ]
+    this.chartLabels.push(...labels);
+    const result = this.dataSetsLabels.map((value, index) => {
+      return {data: datas[index], label: value, stack: 'a'};
+    });
+    this.chartData.push(...result);
   }
 
 }

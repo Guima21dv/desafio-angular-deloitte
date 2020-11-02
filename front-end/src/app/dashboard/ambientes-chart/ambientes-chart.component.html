@@ -1,8 +1,5 @@
-<div>
-    <canvas baseChart [datasets]="ambientesChartData" [labels]="ambientesChartLabels" [options]="ambientesChartOptions"
+<div *ngIf="dadosCarregados">
+    <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="ambientesChartOptions"
         [legend]="ambientesChartLegend" [chartType]="chartType" [colors]="ambientesChartBarColor">
     </canvas>
-</div>
-<div class="carregando">
-    <b>Carregando...</b>
 </div>

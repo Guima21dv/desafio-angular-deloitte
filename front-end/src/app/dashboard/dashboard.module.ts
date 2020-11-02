@@ -1,3 +1,4 @@
+import { DashboardService } from './../services/dashboard.service';
 import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
 import { AmbientesChartComponent } from './ambientes-chart/ambientes-chart.component';
 import { DashboardComponent } from './dashboard.component';
@@ -21,6 +22,9 @@ import { ConsumoChartComponent } from './consumo-chart/consumo-chart.component';
   ],
   exports: [
     DashboardComponent
+  ],
+  providers: [
+    DashboardService
   ]
 })
 export class DashboardModule { }
