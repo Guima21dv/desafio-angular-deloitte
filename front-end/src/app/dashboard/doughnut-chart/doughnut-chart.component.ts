@@ -1,7 +1,7 @@
 import { DoughnutData } from './../../shared/interfaces/DoughnutData';
 import { DashboardService } from './../../services/dashboard.service';
 import { Component, OnInit } from '@angular/core';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 import 'chartjs-plugin-piechart-outlabels';
 import 'chartjs-plugin-doughnutlabel';

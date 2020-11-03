@@ -1,8 +1,8 @@
 import { AmbienteData } from './../../shared/interfaces/AmbienteData';
 import { DashboardService } from './../../services/dashboard.service';
-import { Component, OnInit, ViewChild, ɵSWITCH_COMPILE_INJECTABLE__POST_R3__ } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Label, Color, BaseChartDirective } from 'ng2-charts';
+import { Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-ambientes-chart',
