@@ -48,7 +48,7 @@ export class AmbientesChartComponent implements OnInit {
     this.dashboardService.getAmbientes().subscribe(response => {
       this.loadChartDataSetAndLabels(response);
       this.dadosCarregados = true;
-    }, error => alert('Ocorreu um erro ao carregar os dados'));
+    });
   }
 
   loadChartDataSetAndLabels(data: AmbienteData[]): void {

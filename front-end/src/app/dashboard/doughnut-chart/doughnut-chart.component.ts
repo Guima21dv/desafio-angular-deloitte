@@ -31,7 +31,7 @@ export class DoughnutChartComponent implements OnInit {
       this.configureChart();
       this.dadosCarregados = true;
       console.log(this.chartData)
-    }, error => alert('Ocorreu um erro ao carregar os dados'));
+    });
   }
 
   loadChartDataSetAndLabels(data: DoughnutData[]): void {

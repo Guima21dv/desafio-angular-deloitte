@@ -38,7 +38,7 @@ export class ConsumoChartComponent implements OnInit {
     this.dashboardService.getConsumo().subscribe(response => {
       this.loadChartDataSetAndLabels(response);
       this.dadosCarregados = true;
-    }, error => alert('Ocorreu um erro ao carregar os dados'))
+    })
   }
 
   loadChartDataSetAndLabels(data: ConsumoData[]): void {
